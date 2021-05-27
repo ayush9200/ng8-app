@@ -1,0 +1,39 @@
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+  
+  .social-link:hover,
+  .social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+  }
+  
+  img{
+    box-shadow: 0px 0px 6px 2px #888888;
+    border-radius: 0px;
+    margin-top: 1pc;
+  }
+
+  
+
+  #description{
+    border-top: #006a54 7px solid;
+    border-bottom: #006a54 7px solid;
+  }
+  
+  .img-custom{
+    min-height: 100px; 
+    max-width: 100px; 
+    max-height: 100px;
+     min-width: 100px;
+  }

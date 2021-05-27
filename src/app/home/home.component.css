@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+html, body { height: 100%; width: 100%; margin: 0; 
+  scroll-behavior: smooth;
+}
+
+.myButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999; /*not working */
+    pointer-events: auto;
+}
+
+.active{
+  color: #ff8900;
+}
+
+.carousel {
+    height: 100%;
+}
+
+.d-block{
+  height: 80%;
+  max-height: 550px;
+  
+}
+
+.carousel-inner {
+    pointer-events: none;
+    z-index:10;
+    width: 100%; /*this must stay */
+    height: 100%; /*this must stay */
+}
+
+#banner {
+    background-image: linear-gradient(120deg, #91C4FF 0%, #F0F7FF 87%);
+    position: relative;
+    width: 100%;
+    height: 950px;
+  }
+  
+  @-webkit-keyframes backgroundScroll {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -99999999px 0;
+    }
+  }
+  
+  @keyframes backgroundScroll {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -99999999px 0;
+    }
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .carousel-div-background {
+    background-color: #000;
+    position: absolute;
+    opacity: 0.65;
+    font-family: Anton, sans-serif;
+    color: #FFF;
+    z-index: 1;
+  }
+
+  #titleHeadline h1{
+    font-size: 3.00em;
+    margin-bottom: 60px;
+    color: #2a6653;
+    font-weight: 800;
+    line-height: 2.2em;
+    letter-spacing: -0.025em;
+    margin-top: 60px;
+  
+}
+
+  h1,h2,h3,h4,h5{
+      font-family: 'Poppins';
+  }
+
+  p {
+      font-family: 'Oswald';
+  }
+
+  #showcase img{
+      width: 90%;
+      margin-left: 25px;
+      max-height: 315px;
+  }
+
+  .carousel-item .img-fluid {
+     width:100%; 
+     height:100%;
+     height: 650px;
+      background-position: center;
+      background-size: cover;
+    }
+   .showcase-right{
+    color: #666666;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.4em;
+    word-spacing: -0.13em;
+    font-family: Oswald; 
+  }
+
+  #showcase .showcase-top{
+      margin-top: 90px;
+  }
+
+  #testimonial {
+      padding: 50px 0 30px 0;
+      text-align: center;
+      margin-top: 40px;
+  }
+
+  #testimonial p {
+      font-size: 1.875em;
+      text-align: left;
+      font-family: WCManoNegraBta, sans-serif;
+      color: #000000;
+      font-weight: 400;
+      line-height: 1.2em;
+      letter-spacing: 0.025em;
+
+  }
+
+  #testimonial p.customer{
+      font-size: 20px;
+      color: #666666;
+  }
+
+  #mission h1{
+    margin-bottom: 20px;
+    color: #52bf04;
+    margin-top: 60px;
+    font-family: Anton;
+  
+}
+
+#work h1{
+  margin-bottom: 20px;
+  color: #52bf04;
+  margin-top: 60px;
+  font-family: Anton;
+
+}
+
+#mission p{
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  color: #666666;
+  font-size: 1.5em;
+  font-weight: 400;
+  line-height: 1.4em;
+  word-spacing: -0.13em;
+  margin-bottom: 60px;
+}
+
+  .wp-post-image{
+      width: 120px;
+      height: 120px;
+  }
+
+  .wp-post-text{
+    text-align: center;
+    color: #52bf04;
+  }
+
+  #workingModel h1{
+    margin-bottom: 20px;
+    color: #52bf04;
+    margin-top: 60px;
+    font-family: Anton;
+  
+}
+
+#workingModel p{
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #666666;
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.4em;
+    word-spacing: -0.13em;
+    margin-bottom: 60px;
+}
+
+.wp-post-image-services{
+    width: 55px;
+    height: 55px;
+    text-align: center;
+ }
+
+.wp-post-text-services{
+    margin-top: 20px;
+    text-align: center;
+    color: #52bf04;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    
+  }
+
+  #contact {
+      background: url(../../assets/images/OLD-AGE-HOME2.jpg);
+      padding: 40px;
+      color: #fff;
+      border-top: #52bf04 7px solid;
+      border-bottom: #333333 7px solid;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+
+  }
+
+    /**BTN Primary**/
+    .btn-primary{
+      background-color: #52bf04;
+      border-color: #52bf04;
+      border-radius: 0%;
+    }
+    
+  .btn-primary:hover{
+      background-color: #ff8900;
+      border-color: #ff8900;
+   
+  }
+  
+  .btn-primary:focus{
+      background-color: #ff8900;
+      border-color: #ff8900;
+  }
+  
+  .btn-primary:active{
+      background-color: rgb(94, 79, 126);
+      border-color:rgb(94, 79, 126);
+      box-shadow: 0 1px 1px rgba(255, 255, 255, 0.075) inset, 0 0 8px rgba(114, 96, 153, 0.6);
+      outline: 0 none;
+  }
+  .btn-primary:not(:disabled):not(.disabled):active{
+    color: #666666;
+    background: #ff8900;
+    border-color: #ff8900;
+  }
+
+  .showcase-btn{
+    font-family: Oswald;
+  }
+
+  .labelContact{
+    color: #666666;
+    font-weight: 600;
+  }
+
+  .templateCards {
+    max-width: 20rem;
+    max-height: 15rem;
+    min-height: 15rem;
+  }
+
+  #work .border-success{
+    border-color: #666666 ! important;
+    border-width: thin medium thick 0.5px;
+  }
+
+.help-footer{
+  text-align: center;
+  color: #666666;
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 1.4em;
+  word-spacing: -0.13em;
+}
+
+.h1-responsive.c1{
+  color:#52bf04;
+  font-family: 'Anton', 'Oswald';
+}
+
+.h1-responsive.c2{
+  color:#ff8900;
+  font-family: 'Oswald', sans-serif;
+  text-shadow: 0 1px 0 #999999, 0 2px 0 #888888,
+             0 3px 0 #777777, 0 4px 0 #666666,
+             0 5px 0 #555555, 0 6px 0 #444444,
+             0 7px 0 #333333, 0 8px 7px rgba(0, 0, 0, 0.4),
+             0 9px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  display: block;
+  width: 100%;
+  max-height: 70%;
+}
+
+.card {
+  margin-top: 2pc;
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-block {
+  font-size: 1em;
+  position: relative;
+  margin: 0;
+  padding: 1em;
+  border: none;
+  border-top: 1px solid rgba(34, 36, 38, .1);
+  box-shadow: none;
+}
+
+.card-img-top-inp {
+  display: block;
+  width: 100%;
+  min-height: 15pc;
+  max-height: 15pc;
+}
+
+.card-title {
+  font-family: Anton;
+  color: #006a54;
+}
+
+.card-text {
+  clear: both;
+  font-family: Anton;
+  margin-top: .5em;
+}
+
+.peopleCarouselImg img{
+  width: auto;
+  height: 600px;
+  max-height: 600px;
+}
+
+.cardss {
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0px 0px 11px 3px #888888;
+}
+
+#head-beneficiary{
+  margin-top: 4pc;
+  font-family: Anton;
+  color: #52bf04;
+  border-top: #52bf04 3px solid;
+  margin-bottom: 2pc;
+  border-bottom: #52bf04 3px solid;
+}
+
+#beneficiary{
+ 
+  border-top: #52bf04 3px solid;
+}
+
+.card-img-top-bnf {
+  display: block;
+  width: 100%;
+  min-height: 15pc;
+  max-height: 15pc;
+}
+
+.circle-icon {
+  background: #4c4c4c;
+  border-radius: 0px;
+  padding:5px;
+  color: #52bf04;
+}
+
+.ng-valid[required], .ng-valid, .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

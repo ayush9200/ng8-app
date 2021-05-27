@@ -1,0 +1,71 @@
+<html>
+<head>
+</head>
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<div class="brand_logo_container">
+						<img src="assets\images\pass_logo.png" class="brand_logo" alt="Logo">
+					</div>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+					<form class="form-horizontal" [formGroup]="logInServiceForm" novalidate (ngSubmit)="doLogIn()" role="form">
+                        <div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fa fa-user"></i></span>
+								</div>
+								<input type="text" formControlName="username" class="form-control" id="inputText" placeholder="username"/>
+							</div>
+							<div *ngIf="logInServiceForm.controls['username'].invalid && (logInServiceForm.controls['username'].dirty || logInServiceForm.controls['username'].touched)" class="alert alert-danger">
+								<div *ngIf="logInServiceForm.controls['username'].errors.required">
+								Name required.
+							  </div>
+							  <div *ngIf="logInServiceForm.controls['username'].errors.minlength">
+								Name must be at least 7 words long.
+							  </div>
+							</div>
+						  </div>
+
+						  <div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-append">
+									<span class="input-group-text"><i class="fa fa-key"></i></span>
+								</div>
+								<input type="password" formControlName="password" class="form-control" id="inputPassword" placeholder="password"/>
+							</div>
+							<div *ngIf="logInServiceForm.controls['password'].invalid && (logInServiceForm.controls['password'].dirty || logInServiceForm.controls['password'].touched)" class="alert alert-danger">
+								<div *ngIf="logInServiceForm.controls['password'].errors.required">
+								Password required.
+							  </div>
+							  <div *ngIf="logInServiceForm.controls['password'].errors.minlength">
+								Password must be at least 7 words long.
+							  </div>
+							  <div *ngIf="logInServiceForm.controls['password'].errors.pattern">
+								Password should be alphanumeric.
+							</div> 
+							</div>
+						  </div>
+
+						  <div class="d-flex justify-content-center mt-3 login_container">
+							<button type="submit" class="btn btn-primary btn-md showcase-btn" [formGroup]="logInServiceForm" >Submit</button>
+						  </div>
+					</form>
+				</div>
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						<a href="#" style="color: #006a54;">Forgot your password?</a>
+					</div>
+				</div>
+
+				<div class="alert alert-danger alert-wrap" *ngIf="errorFlag">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<h5 class="text-center"> Incorrect credentials. </h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

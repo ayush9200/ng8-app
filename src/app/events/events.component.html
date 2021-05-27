@@ -1,0 +1,362 @@
+
+<html>
+  <head>
+
+  </head>
+  <body style="margin-top: 100px;">
+    <section id="banner">
+      <div class="container" >
+          <div class="row">
+              <div class="col-md-12 col-xs-12" style="min-height: 20pc;">
+                  
+              </div>
+          </div>
+      </div>
+    </section>
+    <section id="event-banner">
+      <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <br>
+            <h1 class="display-4 text-left">PASS Events</h1>
+            <p class="text-left" style="font-style: Oswald;">Different events are organised by PASS society and other helping bodies on the basis of daily needs, medical support, birthdays, festivals, occasions for elders. These events focuses only on helping and enlighting elders.</p>
+        </div>
+       </div>
+      </div>
+    </section>
+    <section id="events-card" style="margin-top: 2pc;">
+      <div class="container">
+        <!-- Generic method based template-->
+        <div class="row" style="margin-top: 3pc;" *ngFor="let com of eventList" >
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="{{ com.url }}" alt="First slide">
+                     </div>
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">{{ com.name }}</h1>
+                         <p class="text-left">{{ com.description }}</p>
+                          <p class="text-left text-muted">Organised By {{ com.orgName }}</p>
+                         <div class="row">
+                          <div class="col-lg-6 col-md-6 col-xs-6">
+                            <p class="text-left text-muted">{{ com.dateOfevent }}</p>
+                          </div> 
+                          <div class="col-lg-6 col-md-6 col-xs-6">
+                                <p class="text-left text-muted">{{ com.cityName }} , {{ com.stateName }} , {{com.countryName}}</p>
+                          </div>
+                         </div>
+                         <div class="row">
+                           <div class="col-lg-12 col-md-12 col-xs-12" style="margin-bottom: 1pc;">
+                              <button class="btn btn-primary" data-toggle="modal" data-target="#myEventInfo" (click)="selectEvent(com)"> Show details</button>
+                           </div>
+                         </div>
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <!-- Static template -->
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\oxy-bed.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Covid Relief for elders</h1>
+                         <p class="text-left">With the help of Mr. Ram Niwas Bansal, Mr. Madan Rai and Mr. Bijendra Bhadana. PASS Society had managed to create emergency covid bed with oxygen support. Also from the help of local civil hospital, we have arranged medicines for Covid Mild and Moderate elder patients.</p>
+                          <p class="text-left text-muted">Organised By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                        
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\cloth-dist-3.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">PASS Quarterly Cloths Distribution</h1>
+                         <p class="text-left">PASS collects clothes that have outgrown their usefulness from their owners, and donate them to the less-fortunate. This program will provide clean clothes to those who need them.</p>
+                          <p class="text-left text-muted">Organised By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                        
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\vridhcare-supp.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Vridh Care - Daily Needs Support</h1>
+                         <p class="text-left">On monthly basis Vridh Care team is helping Pass society for basic needs related to monthly rations, household items, medical equipments and medicine. Vridh Care always maintained a transparent process while donating and helping elders living in Pass Society.</p>
+                          <p class="text-left text-muted">Organised By Vridh Care</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                        
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\mdeical-eye-a.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Free Eye Check-Up and Treatment</h1>
+                         <p class="text-left">Eye checkup camp for elders by experienced doctors at PASS Society. Aim to treat better eye related problem at older stage of life.</p>
+                          <p class="text-left text-muted">Organised By Santosh Medical College Hospital</p>
+                         <div class="row">
+                          <div class="col-lg-6 col-md-6 col-xs-6">
+                            <p class="text-left text-muted">11-04-2021</p>
+                          </div> 
+                          <div class="col-lg-6 col-md-6 col-xs-6">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                       
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\part-time-sew.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Part time Work</h1>
+                         <p class="text-left">Whether you have to work, just hope to stay active in retirement, part-time work can be the answer. PASS have aranged few jobs based on senior citizens interest.</p>
+                          <p class="text-left text-muted">Organised By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                       
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\medical-doc.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Free Weekly Medical Check-up</h1>
+                         <p class="text-left">With the help of experienced doctors who are willing to devote thier important time for the better health of senior citizens in need are working with PASS.</p>
+                          <p class="text-left text-muted">Organised By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                       
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\g8.jpg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Yearly Senior Citizen's Day Event</h1>
+                         <p class="text-left">The World Senior Citizen's Day is celebrated on 21 August each year. The day is known to increase awareness of the factors and issues that affect older adults, such as age deterioration and the study of problems that affect their lives, elder abuse.</p>
+                          <p class="text-left text-muted">Organised By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                        
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\yoga.jpg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Yoga Camp</h1>
+                         <p class="text-left">Yoga refreshes your mind and spirit. Tones your body. Keeps your internal organs and hormonal system in balance. All the more reason for people of all ages to do yoga. In fact, yoga asanas are one of the few physical exercises you can continue doing as you age.</p>
+                          <p class="text-left text-muted">Organised By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                        
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\bhajan.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Weekly Rejuvenating Events</h1>
+                         <p class="text-left">This program organise laughter club, spiritual lectures, aerobics, quiz and games, birthday celebrations, panel discussions, festival celebrations, quarterly outings and the like for the recreation and enrichment of elderly people. Activities for the elderly are organized every weekend for 2 hours in evening.</p>
+                          <p class="text-left text-muted">Organised By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                       
+                     </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\holi.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Festivals Celebration</h1>
+                         <p class="text-left">Every festival is celebrated with joy and happiness here with Residents and members in Pass Society</p>
+                          <p class="text-left text-muted">Hosted By Pass Society</p>
+                         <div class="row">
+                          <div class="col-lg-6 col-md-6 col-xs-6">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                       </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+        <div class="row" style="margin-top: 3pc;">
+          <ul class="list-group" style="box-shadow: 0px 0px 6px 2px #888888; min-width: 100%;">
+            <li class="list-group-item">
+                 <div class="row">
+                     <div class="col-md-3 text-center">
+                         <img class="img-thumbnail" src="assets\images\Gallery\neki-ki-deewar.jpeg" alt="First slide">
+                     </div>
+
+                     <div class="col-md-9" style="margin-top: 0.5pc;">
+                         <h1 class="text-left">Used Cloths Program</h1>
+                         <p class="text-left">Neeki - KI - Deewar concept where people from nearby places left thier used cloths for needy people. PASS then circulates these cloths to needy people who need them in Winters.</p>
+                          <p class="text-left text-muted">Hosted By Pass Society</p>
+                         <div class="row">
+                          <div class="col-12">
+                                <p class="text-left text-muted">Ghaziabad , Delhi , India</p>
+                          </div>
+                         </div>
+                       </div>
+                 </div>
+            </li> 
+         </ul>
+        </div>
+
+      </div>
+      <br>
+    </section>
+  </body>
+</html>
+
+  <div class="modal fade bd-example-modal-xl" id="myEventInfo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="font-family: Oswald;">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12" >
+                  <div class="text-center" style="box-shadow: 0px 0px 6px 2px #888888;">
+                      <img class="img-thumbnail" src="{{ selectedEvent?.url }}" alt="Preview not available">
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+        <div class="modal-body">
+        <table class="table table-hover-1">
+          <tbody>
+              <tr><th class="text-left">Event</th><td class="text-left"> {{ selectedEvent?.name }}</td>	</tr>
+              <tr><th class="text-left">About</th><td class="text-left"> {{ selectedEvent?.description }}</td>	</tr>
+              <tr><th class="text-left">Date of Event</th><td class="text-left"> {{ selectedEvent?.dateOfevent }}</td></tr>	
+              <tr><th class="text-left">Gathering</th><td class="text-left"> {{ selectedEvent?.gatheringCount }}</td></tr>
+              <tr><th class="text-left">Hosted by</th><td class="text-left"> {{ selectedEvent?.memberName }} , {{ selectedEvent?.orgName }}</td></tr>
+              <tr><th class="text-left">Place</th><td class="text-left"> {{ selectedEvent?.cityName }}, {{ selectedEvent?.stateName }}, {{ selectedEvent?.countryName }}</td></tr>
+              <tr><th class="text-left">Contact</th><td class="text-left"> {{ selectedEvent?.contactNo }}</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>

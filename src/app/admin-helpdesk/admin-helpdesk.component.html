@@ -1,0 +1,514 @@
+<html>
+    <head>
+
+    </head>
+<body>
+<section style="margin-top: 110px;">
+    <div class="container">
+        <div class="page-header">
+            <h1>ADMIN Panel.<span class="pull-right label label-default"></span></h1>
+        </div>
+        <div class="row">
+            <div class="col-3">
+              <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Event</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-member" role="tab" aria-controls="v-pills-profile" aria-selected="false">Member</a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-org" role="tab" aria-controls="v-pills-messages" aria-selected="false">Organisation</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-gallery" role="tab" aria-controls="v-pills-settings" aria-selected="false">Gallery</a>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="tab-content" id="v-pills-tabContent">
+                  <!--Event Management-->
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <form class="form-horizontal" [formGroup]="eventServiceForm" novalidate (ngSubmit)="onSubmitEvent()" role="form">
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label labelContact" for="inputText" >Name: </label>
+                          <div class=".col-sm-10">
+                              <input type="text" formControlName="name" class="form-control" id="inputText" placeholder=" -- Event name -- "/>
+                          </div>
+                          <div *ngIf="eventServiceForm.controls['name'].invalid && (eventServiceForm.controls['name'].dirty || eventServiceForm.controls['name'].touched)" class="alert alert-danger">
+                              <div *ngIf="eventServiceForm.controls['name'].errors.required">
+                              Name required.
+                            </div>
+                            <div *ngIf="eventServiceForm.controls['name'].errors.minlength">
+                              Name must be at least 3 words long.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label  class="col-sm-2 control-label labelDescription" for="inputEmail3">Description: </label>
+                              <textarea type="text" formControlName="description" class="form-control" id="inputDescription3" placeholder=" -- Describe event -- "></textarea>
+                              <div *ngIf="eventServiceForm.controls['description'].invalid && (eventServiceForm.controls['description'].dirty || eventServiceForm.controls['description'].touched)" class="alert alert-danger">
+                                  <div *ngIf="eventServiceForm.controls['description'].errors.required">
+                                      Description is required.
+                                  </div>
+                                  <div *ngIf="eventServiceForm.controls['description'].errors.minlength">
+                                    Description must be at least 30 words long.
+                                  </div>
+                              </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label labelCount" for="inputEmail3">Count: </label>
+                                <input type="text" formControlName="gatheringCount" class="form-control" id="inputDescription3" placeholder=" -- Gathering count -- "/>
+                                <div *ngIf="eventServiceForm.controls['gatheringCount'].invalid && (eventServiceForm.controls['gatheringCount'].dirty || eventServiceForm.controls['gatheringCount'].touched)" class="alert alert-danger">
+                                    <div *ngIf="eventServiceForm.controls['gatheringCount'].errors.required">
+                                        Count is required.
+                                    </div>
+                                </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label labelContact" for="inputNumber3" >Contact: </label>
+                              <input type="text" formControlName="contact" class="form-control" id="inputNumber3" placeholder="Phone Number"/>
+                              <div *ngIf="eventServiceForm.controls['contact'].invalid && (eventServiceForm.controls['contact'].dirty || eventServiceForm.controls['contact'].touched)" class="alert alert-danger">
+                                  <div *ngIf="eventServiceForm.controls['contact'].errors.required">
+                                  Phone number is required.
+                                </div>
+                                <div *ngIf="eventServiceForm.controls['contact'].errors.minlength">
+                                  Must be 10-digit number.
+                                </div>
+                                <div *ngIf="eventServiceForm.controls['contact'].errors.pattern">
+                                  Phone number not valid.
+                              </div> 
+                              </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label labelCity" for="inputText1" >City: </label>
+                                <select formControlName="cityId" class="form-control" id="inputCity" >
+                                    <option [ngValue]="0" [disabled]="true"> -- Choose your city -- </option>
+                                    <option *ngFor="let ct of city" [ngValue]="ct.cityId">
+                                        {{ ct.name }}
+                                    </option>
+                                </select>
+                                <div *ngIf="eventServiceForm.controls['cityId'].invalid && (eventServiceForm.controls['cityId'].dirty || eventServiceForm.controls['cityId'].touched)" class="alert alert-danger">
+                                    <div *ngIf="eventServiceForm.controls['cityId'].errors.required">
+                                        City is required.
+                                    </div>
+                                </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label labelState" for="inputText1" >State: </label>
+                                  <select formControlName="stateId" class="form-control" id="inputState">
+                                    <option [ngValue]="0" disabled> -- Choose your state -- </option>
+                                      <option  *ngFor="let com of state" [ngValue]="com.stateId">
+                                          {{ com.name }}
+                                      </option>
+                                  </select>
+                                  <div *ngIf="eventServiceForm.controls['stateId'].invalid && (eventServiceForm.controls['stateId'].dirty || eventServiceForm.controls['stateId'].touched)" class="alert alert-danger">
+                                      <div *ngIf="eventServiceForm.controls['stateId'].errors.required">
+                                        State is required.
+                                      </div>
+                                  </div>
+                          </div>
+
+                           
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label labelMember" for="inputText1" >Member: </label>
+                                    <select formControlName="memberId" class="form-control" id="inputMember" placeholder="Select Member">
+                                        <option [ngValue]="0" disabled> -- Choose your host -- </option>
+                                        <option *ngFor="let pf of member" [ngValue]="pf.memberId">
+                                            {{ pf.name }}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="eventServiceForm.controls['memberId'].invalid && (eventServiceForm.controls['memberId'].dirty || eventServiceForm.controls['memberId'].touched)" class="alert alert-danger">
+                                        <div *ngIf="eventServiceForm.controls['memberId'].errors.required">
+                                          Member name is required.
+                                        </div>
+                                    </div>
+                                    
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label labelOrg" for="inputText1" >Sponsored by: </label>
+                                      <select formControlName="orgId" class="form-control" id="inputState" placeholder="Select">
+                                        <option [ngValue]="0" disabled> -- Choose your organisation -- </option>  
+                                        <option *ngFor="let pf of org" [ngValue]="pf.orgId">
+                                              {{ pf.name }}
+                                          </option>
+                                      </select>
+                                      <div *ngIf="eventServiceForm.controls['orgId'].invalid && (eventServiceForm.controls['orgId'].dirty || eventServiceForm.controls['orgId'].touched)" class="alert alert-danger">
+                                          <div *ngIf="eventServiceForm.controls['orgId'].errors.required">
+                                              Sponsored organisation is required.
+                                          </div>
+                                      </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="row">
+                                  <div class="col-md-8 col-sm-8">
+                                    <label for="file">Choose image to upload : </label>&nbsp;&nbsp;
+                                    <input type="file" id="fileEvent" (change)="handleFileInput($event.target.files,'event')">
+                                  </div>
+                                  <div class="col-md-4 col-sm-4">
+                                    <button type="button" class="btn btn-primary btn-md showcase-btn" (click)="uploadFileToActivity()">Upload</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="alert alert-success alert-wrap" *ngIf="successFlagForImageUpload">
+                                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                  <h3 class="text-left"> Image uploaded for event successfully. </h3>
+                              </div>
+
+                              <!-- <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth</label>
+                                <input id="dateOfBirth" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth" type="text" bsDatepicker class="form-control" />
+                              </div> -->
+
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary btn-md showcase-btn" [formGroup]="eventServiceForm" >Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+                <!--Event Management-->
+
+                <!--Member Management-->
+                <div class="tab-pane fade" id="v-pills-member" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <form class="form-horizontal" [formGroup]="memberServiceForm" novalidate (ngSubmit)="onSubmitMember()" role="form">
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label labelContact" for="inputTextMember" >Name: </label>
+                          <div class=".col-sm-10">
+                              <input type="text" formControlName="name" class="form-control" id="inputTextMember" placeholder=" -- Name -- "/>
+                          </div>
+                          <div *ngIf="memberServiceForm.controls['name'].invalid && (memberServiceForm.controls['name'].dirty || memberServiceForm.controls['name'].touched)" class="alert alert-danger">
+                              <div *ngIf="memberServiceForm.controls['name'].errors.required">
+                              Name required.
+                            </div>
+                            <div *ngIf="memberServiceForm.controls['name'].errors.minlength">
+                              Name must be at least 3 words long.
+                            </div>
+                          </div>
+                        </div>
+						
+						<div class="form-group">
+                        <label  class="col-sm-2 control-label labelContact" for="inputEmailMember">Email: </label>
+                            <input type="email" formControlName="email" class="form-control" id="inputEmailMember" placeholder=" -- Email -- "/>
+                            <div *ngIf="memberServiceForm.controls['email'].invalid && (memberServiceForm.controls['email'].dirty || memberServiceForm.controls['email'].touched)" class="alert alert-danger">
+                                <div *ngIf="memberServiceForm.controls['email'].errors.email">
+                                    Email is incorrect.
+                                </div>
+                            </div>
+                      </div>
+					  
+					  <div class="form-group">
+                          <label class="col-sm-2 control-label labelContact" for="inputNumberMember" >Contact: </label>
+                              <input type="text" formControlName="contact" class="form-control" id="inputNumberMember" placeholder="Phone Number"/>
+                              <div *ngIf="memberServiceForm.controls['contact'].invalid && (memberServiceForm.controls['contact'].dirty || memberServiceForm.controls['contact'].touched)" class="alert alert-danger">
+                                  <div *ngIf="memberServiceForm.controls['contact'].errors.required">
+                                  Phone number is required.
+                                </div>
+                                <div *ngIf="memberServiceForm.controls['contact'].errors.minlength">
+                                  Must be 10-digit number.
+                                </div>
+                                <div *ngIf="memberServiceForm.controls['contact'].errors.pattern">
+                                  Phone number not valid.
+                              </div> 
+                              </div>
+                        </div>
+						
+                        <div class="form-group">
+                          <label  class="col-sm-2 control-label labelAddress" for="inputAddressMember">Address: </label>
+                              <textarea type="text" formControlName="address" class="form-control" id="inputAddressMember" placeholder=" -- Describe event -- "></textarea>
+                              <div *ngIf="memberServiceForm.controls['address'].invalid && (memberServiceForm.controls['address'].dirty || memberServiceForm.controls['address'].touched)" class="alert alert-danger">
+                                  <div *ngIf="memberServiceForm.controls['address'].errors.required">
+                                      Address is required.
+                                  </div>
+                                  <div *ngIf="memberServiceForm.controls['address'].errors.minlength">
+                                    Address must be at least 30 words long.
+                                  </div>
+                              </div>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label labelRoleMember" for="inputRoleMember" >Role: </label>
+                                <select formControlName="role" class="form-control" id="inputRoleMember" placeholder="Select Role">
+                                    <option [ngValue]="0" disabled selected> -- Choose member role -- </option>
+                                    <option *ngFor="let ct of role" [ngValue]="ct.roleName">
+                                        {{ ct.roleName }}
+                                    </option>
+                                </select>
+                                <div *ngIf="memberServiceForm.controls['role'].invalid && (memberServiceForm.controls['role'].dirty || memberServiceForm.controls['role'].touched)" class="alert alert-danger">
+                                    <div *ngIf="memberServiceForm.controls['role'].errors.required">
+                                        Role is required.
+                                    </div>
+                                </div>
+                        </div>
+                        
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label labelRegisteredMember" for="inputRegistrationMember" >Registered: </label>
+                                  <select formControlName="isRegistered" class="form-control" id="inputRegistrationMember">
+                                    <option [ngValue]="0" disabled> -- Choose member registration -- </option>
+                                      <option  *ngFor="let com of genVal" [ngValue]="com.genId">
+                                          {{ com.genName }}
+                                      </option>
+                                  </select>
+                                  <div *ngIf="memberServiceForm.controls['isRegistered'].invalid && (memberServiceForm.controls['isRegistered'].dirty || memberServiceForm.controls['isRegistered'].touched)" class="alert alert-danger">
+                                      <div *ngIf="memberServiceForm.controls['isRegistered'].errors.required">
+                                        Registration status is required.
+                                      </div>
+                                  </div>
+                          </div>
+
+                           
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label labelVerifiedMember" for="inputVerifiedMember" >Verified: </label>
+                                    <select formControlName="isVerified" class="form-control" id="inputVerifiedMember" placeholder="Select Member">
+                                        <option [ngValue]="0" disabled> -- Choose member verification -- </option>
+                                        <option *ngFor="let pf of genVal" [ngValue]="pf.genId">
+                                            {{ pf.genName }}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="memberServiceForm.controls['isVerified'].invalid && (memberServiceForm.controls['isVerified'].dirty || memberServiceForm.controls['isVerified'].touched)" class="alert alert-danger">
+                                        <div *ngIf="memberServiceForm.controls['isVerified'].errors.required">
+                                          Verfication status is required.
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+							
+						                	<div class="form-group">
+                                <label class="col-sm-2 control-label labelStatusMember" for="inputStatusMember" >Status: </label>
+                                    <select formControlName="status" class="form-control" id="inputStatusMember" placeholder="Select Member">
+                                        <option [ngValue]="0" disabled> -- Choose member status -- </option>
+                                        <option *ngFor="let pf of statusVal" [ngValue]="pf.statusId">
+                                            {{ pf.statusName }}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="memberServiceForm.controls['status'].invalid && (memberServiceForm.controls['status'].dirty || memberServiceForm.controls['status'].touched)" class="alert alert-danger">
+                                        <div *ngIf="memberServiceForm.controls['status'].errors.required">
+                                          Status is required.
+                                        </div>
+                                    </div>
+                                    
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label labelOrg" for="inputText1" > Organisation: </label>
+                                      <select formControlName="orgId" class="form-control" id="inputState" placeholder="Select">
+                                        <option [ngValue]="0" disabled> -- Choose member organisation -- </option>  
+                                        <option *ngFor="let pf of org" [ngValue]="pf.orgId">
+                                              {{ pf.name }}
+                                          </option>
+                                      </select>
+                                      <div *ngIf="memberServiceForm.controls['orgId'].invalid && (memberServiceForm.controls['orgId'].dirty || memberServiceForm.controls['orgId'].touched)" class="alert alert-danger">
+                                          <div *ngIf="memberServiceForm.controls['orgId'].errors.required">
+                                              Sponsored organisation is required.
+                                          </div>
+                                      </div>
+                              </div>
+                              
+                              <div class="form-group">
+                                <div class="row">
+                                <div class="col-md-8 col-sm-8">
+                                  <label for="file">Choose image to upload : </label>&nbsp;&nbsp;
+                                  <input type="file" id="fileMember" (change)="handleFileInput($event.target.files, 'member')">
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                  <button type="button" class="btn btn-primary btn-md showcase-btn" (click)="uploadFileToActivity()">Upload</button>
+                                </div>
+                                </div>
+                              </div>
+                            <div class="alert alert-success alert-wrap" *ngIf="successFlagForImageUpload">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <h3 class="text-left"> Image uploaded for member successfully. </h3>
+                            </div>
+                              <!-- <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth</label>
+                                <input id="dateOfBirth" formControlName="dateOfBirth" [(ngModel)]="dateOfBirth" type="text" bsDatepicker class="form-control" />
+                              </div> -->
+
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary btn-md showcase-btn" [formGroup]="memberServiceForm" >Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+                <!--Member Management-->
+
+                <!--Org Management-->
+                <div class="tab-pane fade" id="v-pills-org" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                   
+                    <form class="form-horizontal" [formGroup]="orgServiceForm" novalidate (ngSubmit)="onSubmitOrganisation()" role="form">
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label labelName" for="inputTextOrg" >Name: </label>
+                          <div class=".col-sm-10">
+                              <input type="text" formControlName="name" class="form-control" id="inputTextOrg" placeholder=" -- Name -- "/>
+                          </div>
+                          <div *ngIf="orgServiceForm.controls['name'].invalid && (orgServiceForm.controls['name'].dirty || orgServiceForm.controls['name'].touched)" class="alert alert-danger">
+                              <div *ngIf="orgServiceForm.controls['name'].errors.required">
+                              Name required.
+                            </div>
+                            <div *ngIf="orgServiceForm.controls['name'].errors.minlength">
+                              Name must be at least 3 words long.
+                            </div>
+                          </div>
+                        </div>
+						
+						<div class="form-group">
+                        <label  class="col-sm-2 control-label labelContact" for="inputEmailOrg">Email: </label>
+                            <input type="email" formControlName="email" class="form-control" id="inputEmailOrg" placeholder=" -- Email -- "/>
+                            <div *ngIf="orgServiceForm.controls['email'].invalid && (orgServiceForm.controls['email'].dirty || orgServiceForm.controls['email'].touched)" class="alert alert-danger">
+                                <div *ngIf="orgServiceForm.controls['email'].errors.email">
+                                    Email is incorrect.
+                                </div>
+                            </div>
+                      </div>
+					  
+					  <div class="form-group">
+                          <label class="col-sm-2 control-label labelContact" for="inputNumberOrg" >Contact: </label>
+                              <input type="text" formControlName="contact" class="form-control" id="inputNumberOrg" placeholder="Phone Number"/>
+                              <div *ngIf="orgServiceForm.controls['contact'].invalid && (orgServiceForm.controls['contact'].dirty || orgServiceForm.controls['contact'].touched)" class="alert alert-danger">
+                                  <div *ngIf="orgServiceForm.controls['contact'].errors.required">
+                                  Phone number is required.
+                                </div>
+                                <div *ngIf="orgServiceForm.controls['contact'].errors.minlength">
+                                  Must be 10-digit number.
+                                </div>
+                                <div *ngIf="orgServiceForm.controls['contact'].errors.pattern">
+                                  Phone number not valid.
+                              </div> 
+                              </div>
+                        </div>
+						
+                        <div class="form-group">
+                          <label  class="col-sm-2 control-label labelAddress" for="inputAddressOrg">Address: </label>
+                              <textarea type="text" formControlName="address" class="form-control" id="inputAddressOrg" placeholder=" -- Address -- "></textarea>
+                              <div *ngIf="orgServiceForm.controls['address'].invalid && (orgServiceForm.controls['address'].dirty || orgServiceForm.controls['address'].touched)" class="alert alert-danger">
+                                  <div *ngIf="orgServiceForm.controls['address'].errors.required">
+                                      Address is required.
+                                  </div>
+                                  <div *ngIf="orgServiceForm.controls['address'].errors.minlength">
+                                    Address must be at least 10 words long.
+                                  </div>
+                              </div>
+                        </div>
+						
+						<div class="form-group">
+                          <label  class="col-sm-2 control-label labelDescription" for="inputDescripitonOrg">Description: </label>
+                              <textarea type="text" formControlName="description" class="form-control" id="inputDescripitonOrg" placeholder=" -- Describe organisation -- "></textarea>
+                              <div *ngIf="orgServiceForm.controls['description'].invalid && (orgServiceForm.controls['description'].dirty || orgServiceForm.controls['description'].touched)" class="alert alert-danger">
+                                  <div *ngIf="orgServiceForm.controls['description'].errors.required">
+                                      Description is required.
+                                  </div>
+                                  <div *ngIf="orgServiceForm.controls['description'].errors.minlength">
+                                    Description must be at least 30 words long.
+                                  </div>
+                              </div>
+                        </div>
+						
+					            	  <div class="form-group">
+                            <label class="col-sm-2 control-label labelTin" for="inputTinOrg" >TinNumber: </label>
+                            <div class=".col-sm-10">
+                                <input type="text" formControlName="tinNumber" class="form-control" id="inputTinOrg" placeholder=" -- Tin Number -- "/>
+                            </div>
+                            <div *ngIf="orgServiceForm.controls['tinNumber'].invalid && (orgServiceForm.controls['tinNumber'].dirty || orgServiceForm.controls['tinNumber'].touched)" class="alert alert-danger">
+                              <div *ngIf="orgServiceForm.controls['tinNumber'].errors.minlength">
+                                TinNumber must be at least 10 words long.
+                              </div>
+                            </div>
+                          </div>
+						
+					            	<div class="form-group">
+                          <label class="col-sm-2 control-label labelContact" for="inputTextOrg" >Contact Person Name: </label>
+                          <div class=".col-sm-10">
+                              <input type="text" formControlName="contactPerson" class="form-control" id="inputTextOrg" placeholder=" -- Name -- "/>
+                          </div>
+                          <div *ngIf="orgServiceForm.controls['contactPerson'].invalid && (orgServiceForm.controls['contactPerson'].dirty || orgServiceForm.controls['contactPerson'].touched)" class="alert alert-danger">
+                            <div *ngIf="orgServiceForm.controls['contactPerson'].errors.minlength">
+                              Name must be at least 3 words long.
+                            </div>
+                          </div>
+                        </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label labelOrg" for="inputOrgTypeOrg" > Type of Organisation: </label>
+                                      <select formControlName="orgType" class="form-control" id="inputOrgTypeOrg" placeholder="Select">
+                                        <option [ngValue]="0" disabled> -- Choose Org organisation -- </option>  
+                                        <option *ngFor="let pf of orgType" [ngValue]="pf.typeName">
+                                              {{ pf.typeName }}
+                                          </option>
+                                      </select>
+                                      <div *ngIf="orgServiceForm.controls['orgType'].invalid && (orgServiceForm.controls['orgType'].dirty || orgServiceForm.controls['orgType'].touched)" class="alert alert-danger">
+                                          <div *ngIf="orgServiceForm.controls['orgType'].errors.required">
+                                              Organisation is required.
+                                          </div>
+                                      </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="row">
+                                  <div class="col-md-8 col-sm-8">
+                                    <label for="file">Choose image to upload : </label>&nbsp;&nbsp;
+                                    <input type="file" id="fileOrg" (change)="handleFileInput($event.target.files, 'organisation')">
+                                  </div>
+                                  <div class="col-md-4 col-sm-4">
+                                    <button type="button" class="btn btn-primary btn-md showcase-btn" (click)="uploadFileToActivity()">Upload</button>
+                                  </div>
+                                 </div>
+                              </div>
+                              <div class="alert alert-success alert-wrap" *ngIf="successFlagForImageUpload">
+                                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                  <h3 class="text-left"> Image uploaded for organisation successfully. </h3>
+                              </div>
+
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary btn-md showcase-btn" [formGroup]="orgServiceForm" >Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                
+                </div>
+                <!--Org Management-->
+
+                <!--Gallery Management-->
+                <div class="tab-pane fade" id="v-pills-gallery" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                        <label for="file">Choose image to upload : </label>&nbsp;&nbsp;
+                        <input type="file" id="file" (change)="handleFileInput($event.target.files, 'gallery')">
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <button type="button" class="btn btn-primary btn-md showcase-btn" (click)="uploadFileToActivity()">Upload</button>
+                      </div>
+                      </div>
+                     </div>
+                        <div class="alert alert-success alert-wrap" *ngIf="successFlagForImageUpload">
+                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <h3 class="text-left"> Preview </h3>
+                          <div class="row" style="margin-top: 1pc;" *ngFor="let com of imageList" >
+                            <ul class="list-group" style="box-shadow: 0px 0px 11px 6px #888888; min-width: 100%; max-width: 60%; max-height: 50%;">
+                              <li class="list-group-item">
+                                  <div class="row">
+                                      <div class="col-md-12 text-center">
+                                          <img class="img-thumbnail" [src]="imageData" alt="Preview not available">
+                                      </div>
+                                  </div>
+                              </li> 
+                            </ul>
+                          </div>
+                        </div>
+                </div>
+                <!--Gallery Management-->
+                
+              </div>
+            </div>
+          </div>
+    </div>
+</section>
+
+  <div class="alert alert-success alert-wrap" *ngIf="successFlag">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <p *ngIf="successFlag" class="text-center" style="font-family: Oswald; font-size: 20px;"><i class="fa fa-check"></i> &nbsp; <b>Saved successfully</b></p>
+  </div>
+</body>
+</html>

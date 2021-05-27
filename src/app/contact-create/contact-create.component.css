@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body{
+  font-family: Anton;
+}
+
+#banner {
+    background-image: url(../../assets/images/old-people-hands-hd.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    color: white;
+  }
+
+#banner-text{
+  background-color: #ff8900;
+  color: #006a54;
+  }
+
+  #video-donate-box{
+    margin-top: 1pc;
+    box-shadow: 0px 0px 11px 6px #888888;
+    border-radius: 8px;
+  }
+
+  #contact-donation-box {
+    background: url(../../assets/images/PassSociety/food-blur.jpg);
+    padding: 40px;
+    color: white;
+    border-top: #006a54 7px solid;
+    border-bottom: #333333 7px solid;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    font-family: Oswald;
+
+}
+
+#helping-bodies {
+  background: url(../../assets/images/PassSociety/istockphoto-1059059678-612x612.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% 10%;
+  color:#006a54;
+  backdrop-filter: blur(5px);
+  
+}
+
+.circle-icon {
+  background: #ff8900;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  padding:20px;
+}
+
+#volunteer-box{
+    color: #006a54;
+    border-top: #006a54 7px solid;
+    border-bottom: #333333 7px solid;
+    font-family: Oswald;
+}
+
+.card {
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  min-height: 26pc;
+}
+
+.card-block {
+  font-size: 1em;
+  position: relative;
+  margin: 0;
+  padding: 1em;
+  border: none;
+  border-top: 1px solid rgba(34, 36, 38, .1);
+  box-shadow: none;
+}
+
+.card-img-top {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.28571429em;
+  font-weight: 700;
+  line-height: 1.2857em;
+}
+
+.card-text {
+  clear: both;
+  margin-top: .5em;
+  color: rgba(0, 0, 0, .68);
+}
+
+.ng-valid[required], .ng-valid, .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+ /**BTN Primary**/
+ .btn-primary{
+  background-color: #52bf04;
+  border-color: #52bf04;
+  border-radius: 0%;
+}
+
+.btn-primary:hover{
+  background-color: #ff8900;
+  border-color: #ff8900;
+
+}
+
+.btn-primary:focus{
+  background-color: #ff8900;
+  border-color: #ff8900;
+}
+
+.btn-primary:active{
+  background-color: rgb(94, 79, 126);
+  border-color:rgb(94, 79, 126);
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.075) inset, 0 0 8px rgba(114, 96, 153, 0.6);
+  outline: 0 none;
+}
+.btn-primary:not(:disabled):not(.disabled):active{
+color: #666666;
+background: #ff8900;
+border-color: #ff8900;
+}
+
+.showcase-btn{
+font-family: Oswald;
+}

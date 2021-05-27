@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+body {
+    background-image: linear-gradient(to top, #ecedee 0%, #eceeef 75%, #e7e8e9 100%);
+    min-height: 100vh;
+    font: normal 16px sans-serif;
+    padding: 60px 0;
+    font-family: Oswald;
+}
+
+.container.gallery-container {
+    background-color: #fff;
+    color: #35373a;
+    margin-top: 2pc;
+    min-height: 100vh;
+    border-radius: 0px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 3.00em;
+    font-weight: 800;
+    line-height: 1.2em;
+    letter-spacing: -0.025em;
+    color: #52bf04;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    color: #888;
+}
+
+.tz-gallery {
+    padding: 40px;
+}
+
+.tz-gallery .lightbox img {
+    width: 100%;
+    margin-bottom: 30px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    max-height: 12pc;
+    min-height: 12pc;
+    border : 1px solid #006a54;
+}
+
+
+.tz-gallery .lightbox img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.tz-gallery img {
+    border-radius: 0px;
+    
+}
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}
+
+
+@media(max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .container.gallery-container {
+        border-radius: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-multi-item-2 .col-md-3 {
+    float: left;
+    width: 25%;
+    max-width: 100%; } }
+    
+    .carousel-multi-item-2 .card img {
+    border-radius: 0px; 
+}
+
+.peopleCarouselImg img{
+  width: auto;
+  height: 500px;
+  max-height: 500px;
+}
+
+#carousel-gallery-news{
+    border-top: #006a54 7px solid;
+    border-bottom: #006a54 7px solid;
+}
+
+.circle-icon {
+    color: #ff8900;
+  }
+
+  #galleryBox h1{
+      color: #006a54;
+      font-family: Anton;
+  }
+
+  .carousel-control-next {
+      color: #35373a;
+  }

@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+.btn-primary{
+    background-color: #52bf04;
+    border-color: #52bf04;
+  }
+  
+.btn-primary:hover{
+    background-color: #ff8900;
+    border-color: #ff8900;
+ 
+}
+
+.btn-primary:focus{
+    background-color: #ff8900;
+    border-color: #ff8900;
+}
+
+.btn-primary:active{
+    background-color: rgb(94, 79, 126);
+    border-color:rgb(94, 79, 126);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.075) inset, 0 0 8px rgba(114, 96, 153, 0.6);
+    outline: 0 none;
+}
+.btn-primary:not(:disabled):not(.disabled):active{
+  color: #666666;
+  background: #ff8900;
+  border-color: #ff8900;
+}
+
+.showcase-btn{
+  margin-left: -14px;
+  margin-top: 5px;
+}
+
+.dbText{
+    color: whitesmoke;
+    font-family: Anton;
+    text-transform: uppercase;
+    
+}
+
+.dbButton{
+  border-radius: 0px; 
+  
+}
+
+.dbRow{
+    min-height: 30pc;
+}
+
+#donation-box{
+  background-image: url(../../assets/images/PassSociety/portrait-bg-old-man.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% 40%;
+}
+
+#help-box{
+  border-top: #006a54 7px solid;
+}

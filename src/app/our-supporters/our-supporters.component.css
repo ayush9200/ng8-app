@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+    #first-banner{
+        background: url(../../assets/images/template/bg3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 65%;
+        color: #006a54;
+        font-family: Anton;
+    }
+
+    #orgList{
+        box-shadow: 0px 0px 11px 2px #888888; 
+        min-width: 100%;
+        margin-top: 1pc;
+        font-family: Oswald;
+        color: #006a54;
+    }
+
+    #org-banner{
+        border-top: #006a54 7px solid;
+        background-color: #ff8900;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        color: white;
+        font-family: Anton;
+    }
+
+    #memberList{
+        background-color: #ffffff;
+    }
+
+    .card {
+        margin-top: 2pc;
+        font-size: 1em;
+        overflow: hidden;
+        padding: 0;
+        border: none;
+        border-radius: 0px;
+        box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+        min-height: 5pc;
+      }
+      
+      .card-block {
+        font-size: 1em;
+        position: relative;
+        margin: 0;
+        padding: 1em;
+        border: none;
+        border-top: 1px solid rgba(34, 36, 38, .1);
+        box-shadow: none;
+      }
+      
+      .card-img-top-inp {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 15pc;
+        max-height: 15pc;
+      }
+      
+      .card-title {
+        font-family: Oswald;
+        color: #006a54;
+      }
+      
+      .card-text {
+        clear: both;
+        font-family: Oswald;
+      }
+
+      
