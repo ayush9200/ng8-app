@@ -90,12 +90,15 @@ body {
 }
 
 #carousel-gallery-news{
-    border-top: #006a54 7px solid;
-    border-bottom: #006a54 7px solid;
+    margin-top: 2pc;
+    border-top: #45637d 3px solid;
+    border-bottom: #45637d 3px solid;
+    border-left: #45637d 3px solid;
+    border-right: #45637d 3px solid;
 }
 
 .circle-icon {
-    color: #ff8900;
+    color: #ddd;
   }
 
   #galleryBox h1{

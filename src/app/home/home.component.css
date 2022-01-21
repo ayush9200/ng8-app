@@ -219,8 +219,8 @@ html, body { height: 100%; width: 100%; margin: 0;
       background: url(../../assets/images/OLD-AGE-HOME2.jpg);
       padding: 40px;
       color: #fff;
-      border-top: #52bf04 7px solid;
-      border-bottom: #333333 7px solid;
+      border-top: #52bf04 3px solid;
+      border-bottom: #52bf04 3px solid;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 50% 50%;
@@ -363,9 +363,7 @@ html, body { height: 100%; width: 100%; margin: 0;
   margin-top: 4pc;
   font-family: Anton;
   color: #52bf04;
-  border-top: #52bf04 3px solid;
   margin-bottom: 2pc;
-  border-bottom: #52bf04 3px solid;
 }
 
 #beneficiary{

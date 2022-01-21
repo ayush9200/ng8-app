@@ -3,21 +3,14 @@ body{
   font-family: 'Oswald', sans-serif;
 }
 
-
-.about-footer{
-  padding: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 .wp-post-text-footer{
-    color: #52bf04;
-    text-transform: uppercase;
+    color: #8af73c;
   }
+
+  
 
   .link-post-text-footer{
     color: #52bf04;
-    font-size: 1.4em;
   }
 
   .page-footer{
@@ -28,6 +21,11 @@ body{
 
   .text-link{
     color: #666666;
+  }
+
+  .page-footer {
+    background: none repeat scroll 0 0 #45637d;
+    color: white;
   }
 
   /*SOCİAL İCONS*/
